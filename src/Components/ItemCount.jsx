@@ -1,8 +1,10 @@
 
-import { getThemeProps } from "@mui/system";
+
 import {useState} from "react";
+import Button from '@mui/material/Button';
 
 export default function ItemCount({stock, initial}) {
+    
     
     const [count, setCount] = useState(initial)
  
@@ -38,11 +40,12 @@ const onAdd = () =>{
         <h1> Soy el contador </h1>
         
         <div>
-            <button onClick={sumar}> + </button>
+            <Button variant="contained" onClick={sumar}> + </Button>
             <h2> {count} </h2>
-            <button onClick={restar}> - </button>
+            <Button variant="contained" onClick={restar}> - </Button>
         </div>
-            <button onClick={onAdd}> enviar al carrito </button>
+        <br />
+            <Button onClick={onAdd}> enviar al carrito </Button>
     </>
     );
     } 
