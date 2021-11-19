@@ -1,7 +1,7 @@
 
 import './App.css';
 import NavBar from './Components/Navbar';
-import Menu from './Components/Menu';
+//import Menu from './Components/Menu';
 import ItemListContainer from './Components/ItemListContainer'
 
 
