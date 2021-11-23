@@ -7,7 +7,12 @@ const ItemList = ({productos}) => {
     return(
        <div>
 
-           <Grid container spacing={16} justify="center">
+           <Grid 
+                container
+                direction="row"
+                justifyContent="flex-start"
+                alignItems="center"
+                margin="25px">
 
            {productos.map(producto=>{
                return(

@@ -1,3 +1,12 @@
+import cronos from "../imagenes/cronos.jpg";
+import virtus from "../imagenes/virtus.jpg";
+import kwid from "../imagenes/kwid.jpg";
+import logan from "../imagenes/logan.jpg";
+import ecosport from "../imagenes/ecosport.jpg";
+import ka from "../imagenes/ka.jpg";
+import gol from "../imagenes/gol.jpg";
+import toro from "../imagenes/toro.jpg";
+import prisma from "../imagenes/prisma.jpg";
 
 
 
@@ -7,63 +16,63 @@
       "id": 1,
       "marca": "Fiat",
       "modelo": "Cronos",
-      "imagen": "imagenes/cronos.jpg"
+      "imagen": cronos,
     },
     {
       "precio": 1500,
       "id": 2,
       "marca": "Volkswagen",
       "modelo": "Virtus",
-      "imagen": "imagenes/virtus.jpg"
+      "imagen": virtus
     },
     {
       "precio": 990,
       "id": 3,
       "marca": "Renault",
       "modelo": "Kwid",
-      "imagen": "imagenes/kwid.jpg"
+      "imagen": kwid
     },
     {
       "precio": 1350,
       "id": 4,
       "marca": "Renault",
       "modelo": "Logan",
-      "imagen": "imagenes/logan.jpg"
+      "imagen": logan
     },
     {
       "precio": 1500,
       "id": 5,
       "marca": "Ford",
       "modelo": "Ecosport",
-      "imagen": "imagenes/ecosport.jpg"
+      "imagen": ecosport
     },
     {
       "precio": 1350,
       "id": 6,
       "marca": "Ford",
       "modelo": "Ka",
-      "imagen": "imagenes/ka.jpg"
+      "imagen": ka
     },
     {
       "precio": 1100,
       "id": 7,
       "marca": "Volkswagen",
       "modelo": "Gol",
-      "imagen": "imagenes/gol.jpg"
+      "imagen": gol
       },
       {
         "precio": 1800,
         "id": 8,
         "marca": "Fiat",
         "modelo": "Toro",
-        "imagen": "imagenes/toro.jpg"
+        "imagen": toro
       },
       {
         "precio": 1350,
         "id": 9,
         "marca": "Chevrolet",
         "modelo": "Prisma",
-        "imagen": "imagenes/prisma.jpg"
+        "imagen": prisma
       }
   ]
 

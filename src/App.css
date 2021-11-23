@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+
+.css-1ri6ub7-MuiPaper-root-MuiCard-root {
+    margin: 25px;
+    background-color: #fffeeb !important;
+}
