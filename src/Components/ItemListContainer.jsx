@@ -4,6 +4,8 @@ import { useState, useEffect} from "react";
 import ItemCount from "./ItemCount";
 import promesaManual from "../Services/promesaManual";
 import ItemList from "./ItemList";
+import ItemDetailContainer from "./ItemDetailContainer";
+
 
 
 
@@ -29,6 +31,8 @@ export default function ItemListContainer({greeting}) {
              <h1> {greeting} </h1>
              <ItemCount  stock={5} initial={1}/>
              <ItemList productos={productos} />
+             <ItemDetailContainer />
+             
     </>
     );
 
