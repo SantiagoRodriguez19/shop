@@ -2,6 +2,7 @@
 
 import {useState} from "react";
 import Button from '@mui/material/Button';
+import { AddToCart } from "./Button"
 
 export default function ItemCount({stock, initial}) {
     
@@ -25,19 +26,21 @@ export default function ItemCount({stock, initial}) {
 
 
 const onAdd = () =>{
-   const mensaje = `Agregaste ${count} producto`;
-    if (count === 1)
-        alert(mensaje)
-        else{
-        alert(`${mensaje}s`)
-        }
+
+    setCount(initial);
+   //const mensaje = `Agregaste ${count} producto`;
+    //if (count === 1)
+    //    alert(mensaje)
+    //    else{
+    //    alert(`${mensaje}s`)
+     //   }
     }
 
 
 
     return (
     <>
-        <h1> Soy el contador </h1>
+       
         
         <div>
             <Button variant="contained" onClick={sumar}> + </Button>
@@ -45,7 +48,8 @@ const onAdd = () =>{
             <Button variant="contained" onClick={restar}> - </Button>
         </div>
         <br />
-            <Button onClick={onAdd}> enviar al carrito </Button>
+          
+          <AddToCart onAdd={onAdd}></AddToCart>  
     </>
     );
     } 

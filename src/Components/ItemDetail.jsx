@@ -2,6 +2,7 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import ItemCount from "./ItemCount";
 
 
 
@@ -12,7 +13,8 @@ const ItemDetail = ({product, marca, modelo, precio, imagen, detalle}) =>{
         return(null)
     }
 
-    return(       
+    return(    
+        
             <Card sx={{ maxWidth: 345 }}>
               <CardMedia
                 component="img"
@@ -34,7 +36,10 @@ const ItemDetail = ({product, marca, modelo, precio, imagen, detalle}) =>{
                   Precio diario $ {product.precio}
                 </Typography>
               </CardContent>
+              <ItemCount  stock={5} initial={1}/>
                    </Card>
+            
+           
           );
 
 
