@@ -1,37 +1,35 @@
-//import * as React from 'react';
-//import { SettingsApplicationsTwoTone } from "@mui/icons-material";
+import  React from 'react';
 import { useState, useEffect} from "react";
-//import ItemCount from "./ItemCount";
 import promesaManual from "../Services/promesaManual";
 import ItemList from "./ItemList";
-import ItemDetailContainer from "./ItemDetailContainer";
+//import { Link } from "react-router-dom";
+import { useParams } from 'react-router';
 
 
 
 
 
 
-export default function ItemListContainer({greeting}) {
-    //console.log("soy props de ilc", greeting);
-
-    const [productos, setProductos] = useState([[]])
-    console.log("los productos del hook", productos)
-    
-    useEffect (() =>{
+export default function ItemListContainer({hola}) {
+    const { id } =useParams();
+    const [productos, setProductos] = useState([])
+        
+    useEffect  (() =>{
         promesaManual
-        .then(res =>{
-            setProductos(res)
+        .then (res =>{
+                (id === undefined) ? setProductos(res) : setProductos (res.filter((prod) => prod.Type == id.toLowerCase()));
         })
         .catch(err => alert("tenemos una falla", err))
     
-    }, [])
+    }, [id])
 
     return (
     <>
-             <h1> {greeting} </h1>
+             
+             
           
              <ItemList productos={productos} />
-             <ItemDetailContainer />
+            
              
     </>
     );

@@ -2,7 +2,7 @@ import Item from "./Item"
 import { Grid } from "@mui/material"
 
 const ItemList = ({productos}) => {
-    
+    console.log("item list productos", productos);
 
     return(
        <div>
@@ -14,25 +14,24 @@ const ItemList = ({productos}) => {
                 alignItems="center"
                 margin="25px">
 
-           {productos.map(producto=>{
+           {productos.map((producto)=>{
                return(
                 <Item
-                llave = {producto.id}
-                marca = {producto.marca}
-                modelo = {producto.modelo}
-                precio = {producto.precio}
-                imagen = {producto.imagen}
+                    detalle={producto.detalle}
+                    id = {producto.id}
+                    marca = {producto.marca}
+                    modelo = {producto.modelo}
+                    precio = {producto.precio}
+                    imagen = {producto.imagen}
                 />
-               )
-
-
+               );
            })}
 
            </Grid>
 
        </div>
-    )
-}
+    );
+};
 
 
 export default ItemList

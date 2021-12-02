@@ -3,12 +3,14 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import { Link } from 'react-router-dom';
 
 
  
 
-const Item = ({marca, modelo, imagen, precio}) =>{
+const Item = ({marca, modelo, imagen, precio, id }) =>{
     return (
+    <Link to={`/item/${id}`}>
       <Card sx={{ maxWidth: 345 }}>
         <CardMedia
           component="img"
@@ -23,11 +25,9 @@ const Item = ({marca, modelo, imagen, precio}) =>{
           <Typography variant="body2" color="text.secondary">
             {modelo}
           </Typography>
-          <Typography  variant="h5" component="div">
-            Precio diario $ {precio}
-          </Typography>
         </CardContent>
              </Card>
+      </Link>
     );
   }
 

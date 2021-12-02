@@ -1,61 +1,57 @@
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import ItemCount from "./ItemCount";
+import '../itemdetail.css'
+import { Fragment } from 'react';
+import { Card, CardMedia, CardActions, Typography,} from '@material-ui/core';
+import ItemCount from './ItemCount';
+import { Link } from 'react-router-dom';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import { Button } from '@material-ui/core';
 
 
 
-const ItemDetail = ({product, marca, modelo, precio, imagen, detalle}) =>{
 
-    if(!product){
-
-        return(null)
-    }
-
-    return(    
+const ItemDetail = (props) => {
+  const { marca, modelo, precio, imagen, detalle } = props.item;
+  return (
+    <Fragment>
+    <Box sx={{
+        display: 'flex',
+        justifyContent: 'start',
+        ml: 6.7,
+    }}>
+        <Button className="buttonBackProducts"><Link to="/products">Toda la flota</Link></Button>
+    </Box>
+    <Box
+        sx={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+            '& > :not(style)': {
+                m: 5,
+                width: 1300,
+                height: 500,
+            },
+        }}
+    >
+        <Paper elevation={24} className='Grid'>
+        <Card className='cardImg'>
+                <img src={imagen} alt="" className='imgDetail' />
+            </Card>
+            <CardMedia>
+                <Typography variant='h2'>{marca}</Typography>
+                <Typography variant='h3'>{modelo}</Typography>
+                <Typography variant='h5'>{detalle}</Typography>
+                <Typography variant ='h6'>Precio por dia $ {precio}</Typography>
+                <CardActions disableSpacing className='cardactions'>
+                
+                 
+                </CardActions>
+                <ItemCount  stock={5} initial={1}/>
+            </CardMedia>
+        </Paper>
         
-            <Card sx={{ maxWidth: 345 }}>
-              <CardMedia
-                component="img"
-                height="140"
-                image={product.imagen}
-                alt={modelo}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {product.marca}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {product.modelo}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {product.detalle}
-                </Typography>
-                <Typography  variant="h5" component="div">
-                  Precio diario $ {product.precio}
-                </Typography>
-              </CardContent>
-              <ItemCount  stock={5} initial={1}/>
-                   </Card>
-            
-           
-          );
-
-
-
-       // <>
-       // <div>   
-       //     <h2>Soy el ItemDetail</h2>
-        //    <h3>marca del auto: {product.marca}</h3>
-
-
-      //  </div>
-
-
-      //  </>
-    
-
-}
+    </Box>
+    </Fragment>
+  )}
 
 export default ItemDetail
