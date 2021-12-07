@@ -1,22 +1,25 @@
-import { useEffect, useState } from "react";
-import promesaManual from "../Services/promesaManual";
+import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
-import ItemDetail from "./ItemDetail";
+import promesaManual from '../Services/promesaManual';
+import ItemDetail from './ItemDetail';
 
 const ItemDetailContainer = () => {
-    const [item, setItem] = useState({});
-    console.log('item', item);
+    const[item, setItem] = useState([]);
     const { id } = useParams();
-    console.log("Id use params", id);
-    console.log("Dato id", typeof id)
+    console.log(id);
+    
+    useEffect(() => {
+      promesaManual
+      .then(res => {
+        setItem(res.find((prod) => prod.id === parseInt(id)));
 
-    useEffect (() => {
-        promesaManual.then((res) => {
-            setItem(res.find((prod) => prod.id === parseInt(id)));
-        });
-        //console.log(product)
-    }, [id]);
-    return <ItemDetail  item={item} />
-  };
-
-  export default  ItemDetailContainer
+       
+      })
+      .catch(err => console.log('error al obtener el producto', err))
+     
+    },[id])
+  
+    return (
+     <ItemDetail item = {item}/>
+    );};
+  export default ItemDetailContainer;

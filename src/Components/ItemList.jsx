@@ -1,37 +1,26 @@
-import Item from "./Item"
-import { Grid } from "@mui/material"
+import React, { Fragment } from 'react';
+//import { Link } from 'react-router-dom';
+import { Grid } from '@material-ui/core';
+import Item from './Item'
+import useStyles from './Styles'
 
-const ItemList = ({productos}) => {
-    console.log("item list productos", productos);
+const ItemList = ({ products }) => {
 
-    return(
-       <div>
+    const classes = useStyles();
 
-           <Grid 
-                container
-                direction="row"
-                justifyContent="flex-start"
-                alignItems="center"
-                margin="25px">
-
-           {productos.map((producto)=>{
-               return(
-                <Item
-                    detalle={producto.detalle}
-                    id = {producto.id}
-                    marca = {producto.marca}
-                    modelo = {producto.modelo}
-                    precio = {producto.precio}
-                    imagen = {producto.imagen}
-                />
-               );
-           })}
-
-           </Grid>
-
-       </div>
-    );
-};
-
+    return (
+        <Fragment>
+            <main className={classes.main}>
+                <Grid container justifyContent="center" spacing={4}>
+                    {products.map(product => {
+                        return (
+                            <Item id={product.id} product={product}/>
+                        )
+                    })}
+                </Grid>
+            </main>
+        </Fragment>
+    )
+}
 
 export default ItemList

@@ -1,34 +1,31 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
+import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
+import { Grid } from '@material-ui/core';
+import { Card, CardMedia, CardContent, Typography, Button } from '@material-ui/core';
+import useStyles from './Styles';
+import '../item.css';
 
 
- 
+const Item = ({product}) => {
+    const classes = useStyles();
 
-const Item = ({marca, modelo, imagen, precio, id }) =>{
     return (
-    <Link to={`/item/${id}`}>
-      <Card sx={{ maxWidth: 345 }}>
-        <CardMedia
-          component="img"
-          height="140"
-          image={imagen}
-          alt={modelo}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {marca}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {modelo}
-          </Typography>
-        </CardContent>
-             </Card>
-      </Link>
-    );
-  }
+        <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
+            <Card className='Card'>
+                <CardMedia className={classes.media} image={product.imagen} title={product.marca} />
+                <CardContent>
+                    <div className={classes.CardContent}>
+                        <Typography variant="h4" gutterBottom>
+                            {product.modelo}
+                        </Typography>
+                        <Typography variant="h6">
+                            $ {product.precio}
+                        </Typography>
+                    </div>
+                    <Button variant="contained" color="secondary" className='buttonDetail'><Link to={`/item/${product.id}`}>Detalle</Link></Button>
+                </CardContent>
+            </Card>
+        </Grid>)
+}
 
-export default Item;
+export default Item

@@ -10,7 +10,7 @@ import prisma from "../imagenes/prisma.jpg";
 
 
 
-   const data = [
+   const productos = [
     {
       "id": 1,
       "Type": "medianos",
@@ -18,8 +18,10 @@ import prisma from "../imagenes/prisma.jpg";
       "marca": "Fiat",
       "modelo": "Cronos",
       "imagen": cronos,
+      "Stock": 5,
       "detalle": "Auto familiar, sumamente comodo. Amplio baul  de mas de 500 litros. Interior muy grande para viajar comodo 5 personas",
     },
+  
     {
 
       "id": 2,
@@ -28,6 +30,7 @@ import prisma from "../imagenes/prisma.jpg";
       "marca": "Volkswagen",
       "modelo": "Virtus",
       "imagen": virtus,
+      "Stock": 5,
       "detalle": "Auto familiar, sumamente comodo. Amplio baul  de mas de 500 litros. Interior muy grande para viajar comodo 5 personas",
     },
     {
@@ -37,6 +40,7 @@ import prisma from "../imagenes/prisma.jpg";
       "marca": "Renault",
       "modelo": "Kwid",
       "imagen": kwid,
+      "Stock": 5,
       "detalle": "Auto familiar, sumamente comodo. Amplio baul  de mas de 500 litros. Interior muy grande para viajar comodo 5 personas",
     },
     {
@@ -45,6 +49,7 @@ import prisma from "../imagenes/prisma.jpg";
       "marca": "Renault",
       "modelo": "Logan",
       "imagen": logan,
+      "Stock": 5,
       "detalle": "Auto familiar, sumamente comodo. Amplio baul  de mas de 500 litros. Interior muy grande para viajar comodo 5 personas",
     },
     {
@@ -54,6 +59,7 @@ import prisma from "../imagenes/prisma.jpg";
       "marca": "Ford",
       "modelo": "Ecosport",
       "imagen": ecosport,
+      "Stock": 5,
       "detalle": "Auto familiar, sumamente comodo. Amplio baul  de mas de 500 litros. Interior muy grande para viajar comodo 5 personas",
     },
     {
@@ -63,6 +69,7 @@ import prisma from "../imagenes/prisma.jpg";
       "marca": "Ford",
       "modelo": "Ka",
       "imagen": ka,
+      "Stock": 5,
       "detalle": "Auto familiar, sumamente comodo. Amplio baul  de mas de 500 litros. Interior muy grande para viajar comodo 5 personas",
     },
     {
@@ -72,6 +79,7 @@ import prisma from "../imagenes/prisma.jpg";
       "marca": "Volkswagen",
       "modelo": "Gol",
       "imagen": gol,
+      "Stock": 5,
       "detalle": "Auto familiar, sumamente comodo. Amplio baul  de mas de 500 litros. Interior muy grande para viajar comodo 5 personas",
       },
       {
@@ -81,6 +89,7 @@ import prisma from "../imagenes/prisma.jpg";
         "marca": "Fiat",
         "modelo": "Toro",
         "imagen": toro,
+        "Stock": 5,
         "detalle": "Auto familiar, sumamente comodo. Amplio baul  de mas de 500 litros. Interior muy grande para viajar comodo 5 personas",
       },
       {
@@ -90,6 +99,7 @@ import prisma from "../imagenes/prisma.jpg";
         "marca": "Chevrolet",
         "modelo": "Prisma",
         "imagen": prisma,
+        "Stock": 5,
         "detalle": "Auto familiar, sumamente comodo. Amplio baul  de mas de 500 litros. Interior muy grande para viajar comodo 5 personas",
       }
   ]
@@ -100,8 +110,8 @@ import prisma from "../imagenes/prisma.jpg";
 
 const promesaManual = new Promise ((resolve) =>{
     setTimeout(()=>{
-        resolve(data)
-        }, 3000)
+        resolve(productos)
+        }, 2000)
    
 })
 

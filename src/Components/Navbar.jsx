@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import '../navbar.css'
 import { Link } from 'react-router-dom';
 import SideBarData from './SideBar';
-import CartWidjet from './CartWidjet';
+import {CartWidget} from './CartWidget';
 
 
 
@@ -84,7 +84,7 @@ export default function MenuAppBar() {
           <Typography variant="h5" component="h3" sx={{ mr: 2, mt: 3, flexGrow: 1 }} className={classes.titleNav}>
             Rent a Car
           </Typography>
-          <Link to="/cart"><CartWidjet /></Link>
+          <Link to="/cart"><CartWidget /></Link>
         </Toolbar>
       </AppBar>
     </Box>

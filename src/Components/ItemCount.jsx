@@ -1,55 +1,55 @@
+import React, { Fragment, useState } from 'react'
+import useStyles from './Styles'
+import { AddToCart, FinishButton, BackHome } from './Button';
 
 
-import {useState} from "react";
-import Button from '@mui/material/Button';
-import { AddToCart } from "./Button"
-
-export default function ItemCount({stock, initial}) {
-    
-    
-    const [count, setCount] = useState(initial)
- 
-   const sumar = () =>{
-       const newValue = count + 1
-       if (newValue <= stock){
-           setCount(newValue)
-       }
-   }
 
 
-   const restar = () =>{
-    const newValue = count - 1
-    if (newValue >= initial){
-        setCount(newValue)
-    }
-}
+const ItemCount = ({ stock, onAdd }) => {
 
+    const classes = useStyles();
 
-const onAdd = () =>{
+    const initial = 1;
+    const [count, setCount] = useState(initial);
+    const [display, setDisplay] = useState("hidden");
 
-    setCount(initial);
-   //const mensaje = `Agregaste ${count} producto`;
-    //if (count === 1)
-    //    alert(mensaje)
-    //    else{
-    //    alert(`${mensaje}s`)
-     //   }
-    }
+    const handleSumCount = () => {
+        if (count <= stock) return;
+        setCount(count + 1);
+    };
 
+    const handleSubtractCount = () => {
+        if (count <= 0) return;
+        setCount(count - 1);
+    };
 
+    const handleOnAdd = () => {
+        onAdd(count);
+        setCount(initial);
+        setDisplay("block");
+    };
 
     return (
-    <>
-       
-        
-        <div>
-            <Button variant="contained" onClick={sumar}> + </Button>
-            <h2> {count} </h2>
-            <Button variant="contained" onClick={restar}> - </Button>
-        </div>
-        <br />
-          
-          <AddToCart onAdd={onAdd}></AddToCart>  
-    </>
-    );
-    } 
+        <Fragment>
+            <div className={classes.countcontainer}>
+                <div className={classes.buttoncontainer}>
+                    <button onClick={handleSumCount} className='button'>+</button>
+                    <h1 className={count > 0 ? "positive" : "negative"}>{count}</h1>
+                    <button onClick={handleSubtractCount} className='button'>-</button>
+                </div>
+            </div>
+            {display === "block" ? (
+                <div className="space-y-2">
+                    <FinishButton />
+                    <BackHome />
+                </div>
+            ) : (
+                <>
+                    <AddToCart setDisplay={setDisplay} handleOnAdd={handleOnAdd} />
+                </>
+            )}
+        </Fragment>
+    )
+}
+
+export default ItemCount

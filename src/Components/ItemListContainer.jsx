@@ -10,14 +10,14 @@ import { useParams } from 'react-router';
 
 
 
-export default function ItemListContainer({hola}) {
+export default function ItemListContainer() {
     const { id } =useParams();
-    const [productos, setProductos] = useState([])
+    const [products, SetProducts] = useState([])
         
     useEffect  (() =>{
         promesaManual
         .then (res =>{
-                (id === undefined) ? setProductos(res) : setProductos (res.filter((prod) => prod.Type == id.toLowerCase()));
+                (id === undefined) ? SetProducts(res) : SetProducts (res.filter((prod) => prod.Type == id.toLowerCase()));
         })
         .catch(err => alert("tenemos una falla", err))
     
@@ -28,7 +28,7 @@ export default function ItemListContainer({hola}) {
              
              
           
-             <ItemList productos={productos} />
+             <ItemList products={products} />
             
              
     </>
