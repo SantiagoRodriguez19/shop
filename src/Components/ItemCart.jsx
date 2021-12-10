@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
 
 
-const ItemCart = ({ marca, precio, imagen, id,  cantidad }) => {
+const ItemCart = ({ marca, precio, imagen, id,  cantidad, modelo }) => {
   const { removeItem } = useCartContext();
   const handleRemove = () => removeItem(id);
 
@@ -40,6 +40,7 @@ const ItemCart = ({ marca, precio, imagen, id,  cantidad }) => {
             <img src={imagen} alt="" className='imgCart' />
             <div className='txtContainer'>
               <p className="txtName">{marca}</p>
+              <p className="txtName">{modelo}</p>
               <p className="txtPrice">${precio}</p>
             </div>
           </div>

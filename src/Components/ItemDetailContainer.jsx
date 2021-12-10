@@ -1,25 +1,28 @@
 import { useState, useEffect } from 'react'
 import { useParams } from "react-router-dom";
-import promesaManual from '../Services/promesaManual';
+//import promesaManual from '../Services/promesaManual';
 import ItemDetail from './ItemDetail';
+import { doc, getDoc, getFirestore} from "firebase/firestore"
+import app from '../Services/firebase';
 
-const ItemDetailContainer = () => {
-    const[item, setItem] = useState([]);
-    const { id } = useParams();
-    console.log(id);
-    
+
+  const ItemDetailContainer = () => {
+    let { id } = useParams();
+    const [item, setItem] = useState([]);
+
     useEffect(() => {
-      promesaManual
-      .then(res => {
-        setItem(res.find((prod) => prod.id === parseInt(id)));
+        const db = getFirestore(app);
+        const itemsCollection = doc(db, "items", id);
+         getDoc(itemsCollection).then((snapshot) => {
+             setItem({ id: snapshot.id, ...snapshot.data() })
+        });
+    }, [id]);
 
-       
-      })
-      .catch(err => console.log('error al obtener el producto', err))
-     
-    },[id])
-  
     return (
-     <ItemDetail item = {item}/>
-    );};
+
+          <ItemDetail item={item}></ItemDetail>
+    );
+  
+  };
+  
   export default ItemDetailContainer;

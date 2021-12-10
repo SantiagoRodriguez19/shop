@@ -10,7 +10,7 @@ import {useCartContext} from "./CartContext"
 
 
 const ItemDetail = ({item}) => {
-
+console.log("prueba de item",item)
     const {setCart,addItem} = useCartContext();
 
     const onAdd = (count) => {
@@ -39,22 +39,27 @@ const ItemDetail = ({item}) => {
                 },
             }}
         >
-            <Paper elevation={24} className='Grid'>
+            <Paper elevation={24} className='Grid' key={item.id}>
             <Card className='cardImg'>
                     <img src={item.imagen} alt="" className='imgDetail' />
                 </Card>
                 <CardMedia>
                     <Typography variant='h3'>{item.marca}</Typography>
+                    
                     <Typography variant='h5'>{item.modelo}</Typography>
-                    <Typography variant ='h6'>US$ {item.precio}</Typography>
+                    <Typography variant='h5'>{item.detalle}</Typography>
+                    <Typography variant ='h6'>$ {item.precio}</Typography>
                     <CardActions disableSpacing className='cardactions'>
                         <Typography variant="h6" color="textSecondary"><span>stock:{item.Stock}</span></Typography>
                     <ItemCount stock={item.stock} onAdd={onAdd}/>
+                
                     </CardActions>
                 </CardMedia>
             </Paper>
         </Box>
     </Fragment>
+
+  
     )
 }
 
