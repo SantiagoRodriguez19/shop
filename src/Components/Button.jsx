@@ -1,24 +1,23 @@
-import React from "react";
+import React from 'react'
 import { Typography,Button } from '@material-ui/core';
 import { AddShoppingCart } from '@material-ui/icons';
-import Swal from "sweetalert2"
-import "../cart.css"
-import { Link } from "react-router-dom";
+import {Link} from 'react-router-dom'
+import Swal from 'sweetalert2'
+import '../cart.css'
+import '../button.css'
 
 
-
-const Alert = () =>{
-
+const Alert = () => {
     Swal.fire({
-        position: "bottom",
-        icon: "success",
-        title: "Producto Agregado Al Carro",
-        showConfirmButton: false,
-        timerProgressBar: true,
-        timer: 3000,
-        toast: true,
-    })
-
+        position: 'bottom-end',
+        title:'Tu producto se añadió al carrito',
+        width:'50%',
+        icon:'success',
+        showConfirmButton:false,
+        timerProgressBar:true,
+        timer:2000,
+        toast:true
+      })
 }
 
 export const AddToCart = ({handleOnAdd}) => {
@@ -26,11 +25,10 @@ export const AddToCart = ({handleOnAdd}) => {
         <Button onClick={()=>{
             handleOnAdd()
             Alert()
-        }}>
-
-        <Typography> Agregar al Carro </Typography>
-            <AddShoppingCart />
-        
+        }}
+        className="buttonAddToCart">
+            <Typography className="fontAddCart">Añadir al carrito</Typography>
+                <AddShoppingCart />
         </Button>
     )
 }
@@ -50,7 +48,7 @@ export const ButtonPrimary = ({text}) => (
       onClick={clearCart}
       className="buttonClearCart"
     > 
-    vaciar carrito
+    Vaciar carrito
     <svg
       width="24"
       height="24"
@@ -89,7 +87,7 @@ export const ButtonPrimary = ({text}) => (
         className=""
       >
         <Button>
-        <span className="">Seguir Comprando</span>
+        <span className="buttonFinish">Seguir Comprando</span>
         </Button>     
       </Link>
     );
@@ -102,7 +100,7 @@ export const ButtonPrimary = ({text}) => (
         className=""
       >
         <Button>
-        <span className="">Terminar compra</span>
+        <span className="buttonFinish">Terminar compra</span>
         </Button>
       </Link>
     );

@@ -10,7 +10,7 @@ import {useCartContext} from "./CartContext"
 
 
 const ItemDetail = ({item}) => {
-console.log("prueba de item",item)
+//console.log("prueba de item",item)
     const {setCart,addItem} = useCartContext();
 
     const onAdd = (count) => {

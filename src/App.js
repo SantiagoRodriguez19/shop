@@ -6,7 +6,7 @@ import { CartContextProvider } from './Components/CartContext';
 import { Routes, Route } from 'react-router-dom';
 import ItemDetailContainer from './Components/ItemDetailContainer';
 import Cart from "./Components/Cart"
-
+import Home from "./Components/Home"
 
 
 
@@ -18,6 +18,7 @@ function App() {
     <div className="App">
         <NavBar />
         <Routes>
+          <Route path="/" element={<Home/>}></Route>
           <Route path="/products" element={<ItemListContainer/>}></Route>
           <Route path="/category/:type" element= {<ItemListContainer  />} />
           <Route path="item/:id" element= {<ItemDetailContainer  />} />

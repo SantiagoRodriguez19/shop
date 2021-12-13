@@ -1,13 +1,16 @@
-
-import React from 'react';
+import React from 'react'
 import { useCartContext } from './CartContext';
-
-
+import '../navbar.css'
 
 export const CartWidget = () => {
     const { cartWidgetItems } = useCartContext();
     return (
-      <div className="">
+      <div className="flexCartNum">
+         {cartWidgetItems() === 0 ? null : (
+          <div className="cartNumber">
+            {cartWidgetItems()}
+          </div>
+        )}
         <svg
           width="25"
           height="25"
@@ -28,11 +31,6 @@ export const CartWidget = () => {
             fill="black"
           />
         </svg>
-        {cartWidgetItems() === 0 ? null : (
-          <div className="">
-            {cartWidgetItems()}
-          </div>
-        )}
       </div>
     );
   };
